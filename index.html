@@ -6,29 +6,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" type="image/x-icon" href="">
-    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="style.css">
     <script src="sidebar.js"></script>
+    <script src="index.js"></script>
     <title>UWU-C | Universal Website UP - Checker</title>
 </head>
 
-<body class="bg-slate-900">
+<body class="bg-gradient-to-br from-slate-950 via-slate-900 to-sky-800 h-screen">
 
     <div>
 
-        <div id="mySidebar" class="h-full fixed z-10 top-0 left-0 bg-slate-800 overflow-x-hidden pt-14 sidebar">
+        <div id="mySidebar"
+            class="h-full fixed z-10 top-0 left-0 bg-slate-800 overflow-x-hidden pt-14 sidebar select-none">
             <a href="javascript:void(0)" id="closeNav" class="absolute top-0 right-6 text-4xl ml-12"
                 onclick="closeNav()">&times;</a>
-            <a id="link1" href="#">Search</a>
+            <a id="link1" href="#" onclick="openModal()">Search</a>
             <a id="link2" href="#">About</a>
         </div>
 
-        <div id="main">
-            <button id="openNav"
-                class="text-xl cursor-pointer bg-white text-black px-3 py-1 border-none bg-slate-700:hover navopen"
-                onclick="openNav()">&#9776;</button>
-            <div>
-                <h1 id="main-heading" class="text-white text-4xl text-center bg-slate-500 w-1/2 float-right ">Websites in search</h1>
+        <div id="myModal" class="absolute hidden top-0 left-0 w-full h-full opacity-100 z-50">
+            <div class="bg-black w-1/2 rounded-lg left-1/4 top-1/2 absolute">
+                <span class="close-button cursor-pointer float-right text-white mx-4" onclick="closeModal()">&times;</span>
+                <p class="px-10 py-10 text-white">Input your website to see if it is down</p>
+                <input id="searchTerm" type="text" class="ml-10 mb-10 w-11/12">
             </div>
+        </div>
+
+        <div id="main" class="h-screen">
+
+            <div>
+                <div>
+                    <button id="openNav"
+                        class="absolute rounded-lg shadow-xl text-xl cursor-pointer bg-sky-600 text-black px-3 py-1 mt-3 border-none navopen"
+                        onclick="openNav()">&#9776;</button>
+                </div>
+
+                <div class="float-right">
+                    <input type="checkbox" id="switch" class="h-0 w-0 invisible" /><label for="switch"></label>
+                </div>
+                
+                <div class="float-right text-lg mt-2.5 mr-2">
+                    <h1>Dark Mode</h1>
+                </div>
+
+            </div>
+
+            <div class="flex mt-20">
+                <div class="w-1/2">
+                    <div class="bg-slate-800 rounded-xl mr-2 shadow-xl">
+                        <h1 class="text-4xl py-10 px-10 select-none">Websites</h1>
+                    </div>
+
+                    <div class="bg-slate-800 rounded-xl mr-2 my-4 shadow-xl">
+                        <h1 class="text-4xl py-10 px-10 select-none">Websites Up</h1>
+                    </div>
+
+                    <div class="bg-slate-800 rounded-xl mr-2 my-4 shadow-xl">
+                        <h1 class="text-4xl py-10 px-10 select-none">Websites Down</h1>
+                    </div>
+
+                    <div class="bg-slate-800 rounded-xl mr-2 my-4 shadow-xl">
+                        <h1 class="text-4xl py-10 px-10 select-none">Custom Status</h1>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800 rounded-xl w-1/2 ml-2 shadow-xl">
+                    <h1 class="text-4xl py-10 px-10 select-none">Websites</h1>
+                    <li class="px-10 pb-10 list-none select-none">
+                    </li>
+                </div>
+
+            </div>
+
         </div>
 
     </div>
