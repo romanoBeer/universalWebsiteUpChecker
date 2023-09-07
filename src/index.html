@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/x-icon" href="">
+    <link rel="stylesheet" href="sidebar.css">
+    <script src="sidebar.js"></script>
+    <title>UWU-C | Universal Website UP - Checker</title>
+</head>
+
+<body class="bg-slate-900">
+
+    <div>
+
+        <div id="mySidebar" class="h-full fixed z-10 top-0 left-0 bg-black overflow-x-hidden pt-14 sidebar">
+            <a href="javascript:void(0)" id="closeNav" class="absolute top-0 right-6 text-4xl ml-12"
+                onclick="closeNav()">&times;</a>
+            <a id="link1" href="#">About</a>
+            <a id="link2" href="#">Services</a>
+            <a id="link3" href="#">Clients</a>
+            <a id="link4" href="#">Contact</a>
+        </div>
+
+        <div id="main">
+            <button id="openNav"
+                class="text-xl cursor-pointer bg-white text-black px-3 py-1 border-none bg-slate-700:hover navopen"
+                onclick="openNav()">&#9776;</button>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
