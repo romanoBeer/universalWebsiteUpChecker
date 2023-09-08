@@ -1,4 +1,4 @@
-let sites = ["https://n-8.co.za/", "https://romanobeer.github.io/", "https://mahindrafarmequipment.co.za/", "https://mahindrajhbsouth.co.za/", "https://ipopcars.co.za/", "https://pegc.co.za/", "https://xneelo.co.za/"];
+let sites = ["http://sadsadsa.co.za/", "https://n-8.co.za/", "https://romanobeer.github.io/", "https://mahindrafarmequipment.co.za/", "https://mahindrajhbsouth.co.za/", "https://ipopcars.co.za/", "https://pegc.co.za/", "https://xneelo.co.za/"];
 console.log(sites);
 
 let siteCount = sites.length;
@@ -29,6 +29,8 @@ siteName.addEventListener("keypress", (e) => {
         checkCustom(customSite);
         checkCustomAvailability();
         console.log(isValidUrl(customSite));
+
+        customSite.innerHTML += `<div style="color:#818181">${item}</div>`;
     }else{
         console.log("not enter");
     }
@@ -100,10 +102,11 @@ function checkWebsiteAvailability(url) {
         })
         .catch(error => {
             down++;
-            document.getElementById("websiteDown").innerHTML = down;
             return `${url} is down (Error: ${error.message}).`;
         })
         .then(result => {
+            document.getElementById("websiteDown").innerHTML = down;
+
             const listItem = document.createElement("li");
             listItem.textContent = result;
         });
