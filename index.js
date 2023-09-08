@@ -1,4 +1,4 @@
-let sites = ["https://n-8.co.za/", "https://romanobeer.github.io/", "https://mahindrafarmequipment.co.za/", "https://mahindrajhbsouth.co.za/", "https://ipopcars.co.za/", "https://pegc.co.za/"];
+let sites = ["https://n-8.co.za/", "https://romanobeer.github.io/", "https://mahindrafarmequipment.co.za/", "https://mahindrajhbsouth.co.za/", "https://ipopcars.co.za/", "https://pegc.co.za/", "https://xneelo.co.za/"];
 console.log(sites);
 
 let siteCount = sites.length;
