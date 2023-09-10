@@ -8,7 +8,7 @@ let sites = ["https://mahindrafarmequipment.co.za/", "https://mitsubishimotorsum
 let siteCount = sites.length;
 let up = 0,
     down = 0,
-    customDown = "0",
+    customDown = 0,
     customUp = 0;
 let websites = document.getElementById("websites");
 let siteName = document.getElementById("searchTerm");
@@ -72,23 +72,23 @@ let customSite = [];
 //Display Custom Site Status
 siteName.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
-        pushData(customSite);
-        console.log(customSite);
-
         if (isValidUrl(customSite) == true) {
             checkCustom(customSite);
-            
+            pushData(customSite);
+
+            console.log(customSite);
+
+            document.getElementById("noCustomSites").style.display = "none";
+            displayCustom.innerHTML = '';
+            customSite.map((item) => {
+                displayCustom.innerHTML += `<div style="color:#818181">${item}</div>`;
+            });
         } else {
-            console.log("this is not a valid site");
+            console.log("you are dumb !!!");;
         };
     } else {
         return;
     };
-
-    document.getElementById("noCustomSites").style.display = "none";
-    customSite.map((item) => {
-        displayCustom.innerHTML += `<div style="color:#818181">${item}</div>`;
-    });
 });
 
 function pushData(customSite) {
@@ -119,17 +119,20 @@ function checkCustomAvailability(url) {
         .then(response => {
             if (!response.ok) {
                 customDown++;
+                return;
             } else {
                 customUp++;
                 document.getElementById("customUp").innerHTML = customUp;
+                return;
             }
         })
         .catch(error => {
-            document.getElementById("customDown").innerHTML = customDown;
-            return;
+            customDown++;
+            return console.log(error.message);;
         })
         .then(result => {
-            const listItem = document.createElement("li");
-            listItem.textContent = result;
+            document.getElementById("customDown").innerHTML = customDown;
+
+            console.log(result);
         });
 }
